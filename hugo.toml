@@ -28,6 +28,7 @@ sectionPagesMenu = "main"
     dateFormat = "02 Jan 2006"
     Description = "Meta description here"
     GoogleAnalyticsID = 'G-0L2ZVF33Z8'
+    enableRSS = true
 
 [taxonomies]
     category = 'categories'
@@ -40,5 +41,5 @@ sectionPagesMenu = "main"
 [outputs]
     home = ['html', 'rss']
     section = ['html', 'rss']
-    taxonomy = ['html']
-    term = ['html']
+    taxonomy = ['html', 'rss']
+    term = ['html', 'rss']
