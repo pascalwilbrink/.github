@@ -1,0 +1,11 @@
+@import './variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+a {
+  color: map-get($colors, 'primary');
+}
+
+.branding {
+  font-family: 'Patrick Hand', cursive;
+}

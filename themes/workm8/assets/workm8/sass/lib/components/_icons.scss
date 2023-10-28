@@ -1,0 +1,44 @@
+@import '../../variables';
+
+/**
+ * SOCIAL ICONS
+ **/
+
+.social {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-items: end;
+  justify-content: end;
+  padding: 16px 0;
+  gap: 16px;
+  grid-area: social;
+}
+
+svg.social {
+  transform-origin: center right;
+  transition: all 0.32s ease-in-out;
+  cursor: pointer;
+  width: 24px;
+}
+svg.social:hover {
+  transform: translateX(-100%) rotateY(-180deg);
+  transition: all 0.32s ease-in-out;
+}
+
+/* GitHub */
+svg.icon--github {
+  fill: #ffffff;
+}
+svg.icon--github:hover {
+  fill: #4078c0;
+}
+
+/** Mail */
+svg.icon--mail {
+  fill: #ffffff;
+}
+svg.icon--mail:hover {
+  fill: map-get($colors, primary);
+}

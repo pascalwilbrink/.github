@@ -1,0 +1,5 @@
+{{ $options := dict "transpiler" "libsass" "targetPath" "workm8/css/style.css" }}
+{{ with resources.Get "workm8/sass/main.scss" | toCSS $options | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+

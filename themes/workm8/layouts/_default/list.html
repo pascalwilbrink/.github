@@ -1,0 +1,19 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    <div class="container">
+        <div class="content">
+            <div class="posts">
+                {{ range .Pages.Reverse }}
+                    {{ partial "list_item.html" . }}
+                {{ end }}
+            </div>
+        </div>
+        <aside class="sidebar">
+            {{ partial "sidebar.html" . }}
+        </aside>
+    </div>
+{{ end }}
+
+{{ define "scripts_extra" }}
+    {{ partial "script_async.html" "workm8/ts/main.ts" }}
+{{ end }}

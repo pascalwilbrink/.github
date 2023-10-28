@@ -1,0 +1,18 @@
+<time datetime="{{ .Params.date.Format .Site.Params.dateFormat }}">
+    {{ .Params.date.Format .Site.Params.dateFormat }}
+</time>
+<div>{{ .Params.date.Format .Site.Params.dateFormat }}</div>
+{{ .Date.Format (default "Jan 2, 2006" $.Site.Params.dateFormat) }}
+{{ .Date }}
+{{ .ReadingTime }} 
+{{- with $.Date }}
+<i class='fas fa-calendar'></i> {{ . | time.Format ":date_medium" }}
+{{- end }}
+{{ with .Params.tags }}
+    {{ range . }}
+        {{ $href := print (absURL "tags/") (urlize .) }}
+        <a href="{{ $href }}">
+            {{ . }}
+        </a>
+    {{ end }}
+{{ end }}

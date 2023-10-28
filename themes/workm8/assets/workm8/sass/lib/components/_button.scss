@@ -1,0 +1,36 @@
+@import '../../variables';
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.button {
+  border: 2px solid map-get($colors, primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 11px;
+  font-weight: 500;
+  transition: all 0.23s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.button:hover {
+  background: map-get($colors, primary);
+  color: #ffffff;
+  transition: all 0.23s ease-in-out;
+}
+
+.button.button--show-icon {
+  transition: all 0.23s ease-in-out 0.18s;
+}
+
+.button.button--show-icon i {
+  width: 0px;
+  transform: translateX(40px);
+  transition: transform 0.23s ease-in-out, width 0.23s ease-in-out 0.18s;
+}
+
+.button.button--show-icon:hover i {
+  width: 24px;
+  transform: translateX(0);
+  transition: width 0.23s ease-in-out, transform 0.23s ease-in-out 0.18s;
+}

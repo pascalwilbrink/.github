@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" {{- with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }} dir="{{ . }}" {{- end }}>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <main role="main" class="main">
+            {{- block "main" . }}{{- end }}
+        </main>
+        {{- partial "footer.html" . -}}
+        {{ block "scripts_extra" . }}{{ end }}
+    </body>
+</html>

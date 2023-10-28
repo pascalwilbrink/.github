@@ -1,0 +1,23 @@
+{{ define "main" }}
+    <div class="hero">
+        <div class="card">
+            <div class="card__header">
+                Hi there,
+            </div>
+            <div class="card__content">
+                Card  content
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__content">
+                You can check out my 
+                <a href="https://github.com/pascalwilbrink">GitHub Page here</a>, <br />
+                or <a href="/posts/">read my blog</a> here.
+            </div>
+        </div>
+    </div>
+{{ end }}
+
+{{ define "scripts_extra" }}
+  {{ partial "script_async.html" "workm8/ts/main.ts" }}
+{{ end }}

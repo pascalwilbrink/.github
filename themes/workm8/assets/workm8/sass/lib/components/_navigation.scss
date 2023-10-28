@@ -1,0 +1,124 @@
+@import '../../variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.nav {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 24px;
+
+    .nav__item {
+        color: #ffffff;
+        text-decoration: none;
+        transition: all 0.23s ease-in-out;
+        position: relative;
+
+        &:after {
+            display: block;
+            content: '';
+            bottom: -6px;
+            position: absolute;
+            width: 100%;
+            border-bottom: 2px solid map-get($colors, primary);
+            transform: scaleX(0);
+            transition: transform 0.23s ease-in-out;
+        }
+
+        &:hover {
+            color: map-get($colors, primary);
+            transition: all 0.23s ease-in-out;
+
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+
+        
+    }
+}
+
+
+#nav-toggle-checkbox + label {
+    display: none;
+}
+
+/**
+ * MOBILE
+ */
+@media (max-width: 700px) {
+    #nav-toggle-checkbox + label {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+
+        .nav__item {
+            display: block;
+            text-align: center;
+            padding: 8px 0;
+            margin: 8px 0;
+        }
+    }
+
+    #nav-toggle-checkbox {
+        display: flex;
+
+        &:checked ~ .nav {
+            padding-top: 16px;
+            display: block;
+        }
+    }
+}
+
+/**
+ * MOBILE NAV TOGGLE
+ */
+
+#nav-toggle-checkbox {
+    position: absolute;
+    opacity: 0;
+
+    & + label {
+        cursor: pointer;
+        position: relative;
+        height: 22px;
+        width: 30px;
+
+        span {
+            position: absolute;
+            display: block;
+            height: 5px;
+            width: 100%;
+            border-radius: 30px;
+            background: map-get($colors, primary);
+            transition: all .23s ease-in-out;
+
+            &:nth-child(1) {
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: 8px;
+            }
+            &:nth-child(3) {
+                top: 16px;
+            }
+        }
+    }
+
+    &:checked + label span {
+
+        &:nth-child(1) {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        &:nth-child(2) {
+            opacity: 0;
+        }
+        &:nth-child(3) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+    }
+}

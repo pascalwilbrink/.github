@@ -1,0 +1,21 @@
+.label {
+    padding: 8px 16px;
+    background: #627992;
+    display: inline-flex;
+    border-radius: 9px;
+    color: #FFFFFF;
+    font-weight: 500;
+    transition: all .23s ease-in-out;
+    text-decoration: none;
+
+
+    &__number {
+        color: #FFFFFF;
+        margin-left: 8px;
+    }
+
+    &:hover {
+        background: #495b6c;
+        transition: all .23s ease-in-out;
+    }
+}

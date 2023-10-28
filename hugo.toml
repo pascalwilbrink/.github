@@ -1,0 +1,44 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+copyright = "2023 Pascal Wilbrink All rights reserved"
+title = 'Pascal Wilbrink'
+theme = 'workm8'
+
+[author]
+	name = "Pascal Wilbrink"
+	email = "pascal.wilbrink@gmail.com"
+
+[menu]
+    [[menu.main]]
+        name = "Home"
+        url = "/"
+        weight = 1
+    [[menu.main]]
+        name = "Blog"
+        url = "/posts/"
+        weight = 2
+
+sectionPagesMenu = "main"
+
+[security.exec]
+    allow = ['^go$', '^npx$', '^postcss$', '^babel$']
+
+[params]
+    date_format = "02 Jan 2006"
+    dateFormat = "02 Jan 2006"
+    Description = "Meta description here"
+    GoogleAnalyticsID = 'G-0L2ZVF33Z8'
+
+[taxonomies]
+    category = 'categories'
+    tag = 'tags'
+
+
+[permalinks]
+    categories =  "/:section/:slug"
+
+[outputs]
+    home = ['html', 'rss']
+    section = ['html', 'rss']
+    taxonomy = ['html']
+    term = ['html']
