@@ -27,7 +27,8 @@
 .posts {
     display: grid;
     gap: 32px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(240px, max-content));
+
 }
 
 .post {
@@ -47,17 +48,29 @@
 }
 
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    grid-template-areas:
+        "content sidebar";
+    gap: 32px;
 
     .content {
-        flex: 1;
+        grid-area: content;
     }
 
     .sidebar {
-        width: 320px;
+        grid-area: sidebar;
     }
 }
 
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "sidebar"
+            "content";
+    }
+}
 
 .sidebar {
     .card {
