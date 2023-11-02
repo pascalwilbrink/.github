@@ -1,17 +1,25 @@
 @import './reset';
 @import './typography';
 
+// Components
 @import './lib/components/header';
 @import './lib/components/navigation';
 @import './lib/components/icons';
 @import './lib/components/card';
 @import './lib/components/button';
 @import './lib/components/label';
+@import './lib/components/code';
+@import './lib/components/toc';
+@import './lib/components/table';
+
+// Pages
+@import './lib/pages/single';
+@import './lib/pages/presentations';
 
 .main {
     background: #F1F2F3;
     padding: 32px;
-    height: 100%;
+    min-height: 100%;
 }
 
 .hero {
@@ -63,7 +71,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 980px) {
     .container {
         grid-template-columns: 1fr;
         grid-template-areas: 

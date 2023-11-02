@@ -1,18 +1,60 @@
 {{ define "main" }}
 
-    <h1>
-        {{ .Title }}
-    </h1>
-    {{ partial "metadata.html" }}
-    {{ if .Date }}
-    <div class="f6">
-      {{ .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) }}
+    <div class="container">
+        <div class="content">
+            <h1>
+                {{ .Title }}
+            </h1>
+            <div class="post__meta">
+                {{ if .Date }}
+                    <span class="post__meta__date">
+                        <i class="material-symbols-outlined">calendar_today</i>
+                        {{ .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) }}
+                    </span>
+                {{ end }}
+        
+                {{- with .Params.tags -}}
+                    {{- if ge (len .) 1 -}}
+                        <span class="post__meta__tags">
+                            <i class="material-symbols-outlined">sell</i>
+                            {{- range . -}}
+                                <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">
+                                    {{ . }}
+                                </a>
+                            {{ end -}}
+                        </span>
+                    {{- end -}}
+                {{- end -}}
+
+                {{ $readTime := mul (div (countwords .Content) 183.0) 60 }}
+                {{ $minutes := math.Floor (div $readTime 60) }}
+                {{ $seconds := mod $readTime 60 }}
+                <span class="post__meta__time-to-read">
+                    <i class="material-symbols-outlined">timer</i>
+                    {{ $minutes }} {{ cond (eq $minutes 1) "minute" "minutes" }} and 
+                    {{ $seconds }} {{ cond (eq $seconds 1) "second" "seconds" }}
+                </span>
+            </div>
+            <div class="card">
+                <div class="card__content">
+                    {{ .Content }}
+                </div>
+            </div>
+        </div>
+        <aside class="sidebar">
+            {{ partial "sidebar.html" . }}
+        </aside>
     </div>
-  {{ end }}
-    <br />
-    <br />
+{{ end }}
 
+{{ define "scripts_extra" }}
+  {{ partial "script_async.html" "workm8/ts/main.ts" }}
+  {{ partial "script_async.html" "workm8/ts/copy-code.ts" }}
 
-    {{ .Content }}
-
+    {{ if .Page.Store.Get "hasMermaid" }}
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    {{ end }}
 {{ end }}

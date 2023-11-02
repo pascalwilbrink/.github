@@ -1,24 +1,30 @@
 {{ define "main" }}
     {{ $pages := where .Site.RegularPages "Section" "!=" ""}}
     <h1>{{ .Title }}</h1>
-    <div class="input-group mt-5">
-      <div class="input-group-prepend">
-        <div class="input-group-text"><i class="fas fa-search"></i></div>
+    <div class="container">
+      <div class="content">
+        <div class="input-group mt-5">
+          <div class="input-group-prepend">
+            <div class="input-group-text"><i class="fas fa-search"></i></div>
+          </div>
+          <input type="text" class="form-control" id="search" placeholder="Search">
+        </div>
+        <p id="search-results-count"></p>
+        <div class="posts search-results">
+            {{ range $pages.Reverse }}
+                {{ partial "list_item.html" . }}
+            {{ end }}
+        </div>
+        <h5 id="search-results-message" class="text-center mt-5"></h5>
       </div>
-      <input type="text" class="form-control" id="search" placeholder="Search">
+      <aside class="sidebar">
+        {{ partial "sidebar.html" . }}
+      </aside>
     </div>
-    <p id="search-results-count"></p>
-    <div class="posts search-results">
-        {{ range $pages.Reverse }}
-            {{ partial "list_item.html" . }}
-        {{ end }}
-    </div>
-    <h5 id="search-results-message" class="text-center mt-5"></h5>
 {{ end }}
 
 {{ define "scripts_extra" }}
   {{ partial "script_async.html" "workm8/ts/main.ts" }}
   {{ partial "script_async.html" "workm8/ts/search.ts" }}
-
 {{ end }}
 

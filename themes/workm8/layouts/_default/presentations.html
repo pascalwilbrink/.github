@@ -1,0 +1,35 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    <div class="container">
+        <div class="content">
+            <div class="presentations">
+                {{ $section := site.GetPage "presentations" }}
+                {{ range $section.Pages }}
+                    <div class="card">
+                        <div class="card__header">
+                            {{ .Title }}
+                        </div>
+                        <div class="card__content">
+                            {{ .Summary }}
+                        </div>
+                        <div class="card__actions">
+                            <a class="button button--show-icon" href="{{ .RelPermalink }}">
+                                Read more
+                                <i class="material-symbols-outlined">chevron_right</i>
+                            </a>
+                        </div>
+                    </div>
+                {{ end }}        
+            </div>
+        </div>
+        <aside class="sidebar">
+            {{ partial "sidebar.html" . }}
+        </aside>
+    </div>
+{{ end }}
+
+{{ define "scripts_extra" }}
+  {{ partial "script_async.html" "workm8/ts/main.ts" }}
+  {{ partial "script_async.html" "workm8/ts/search.ts" }}
+{{ end }}
+

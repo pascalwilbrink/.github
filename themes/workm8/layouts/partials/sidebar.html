@@ -1,3 +1,22 @@
+{{ if .IsPage }}
+    {{ with .Param "search" }}
+        
+    {{ else }}
+        {{ with .TableOfContents }}
+            {{ if ne . "<nav id=\"TableOfContents\"></nav>"  }}
+                <div class="card">
+                    <div class="card__header">
+                        Table of contents
+                    </div>
+                    <div class="card__content">
+                        {{ . }}
+                    </div>
+                </div>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
 <div class="card">
     <div class="card__header">
         Categories
@@ -31,7 +50,7 @@
                         </span>
                     </a>
                 {{ end }}
-        {{ end }}
-      </div>
+            {{ end }}
+        </div>
     </div>
 </div>

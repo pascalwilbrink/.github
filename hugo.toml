@@ -17,6 +17,10 @@ theme = 'workm8'
         name = "Blog"
         url = "/posts/"
         weight = 2
+    [[menu.main]]
+        name = "Presentations"
+        url = "/presentations/"
+        weight = 3
 
 sectionPagesMenu = "main"
 
@@ -43,3 +47,21 @@ sectionPagesMenu = "main"
     section = ['html', 'rss']
     taxonomy = ['html', 'rss']
     term = ['html', 'rss']
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'monokai'
+    tabWidth = 4
+
+
