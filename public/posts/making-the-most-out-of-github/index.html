@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Making the most out of GitHub | Pascal Wilbrink</title> 
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1"><meta name="description" content="" />
+    
+    
+    
+    
+        <meta name="robots" content="index, follow">
+    
+
+  <link rel="stylesheet" href="/workm8/css/style.min.d92a09a46e95cc4679cd1b9a9fd0e9cdfdf21ffef0a7a759c8ba9813e92778b1.css" integrity="sha256-2SoJpG6VzEZ5zRuan9Dpzf3yH/7wp6dZyLqYE&#43;kneLE=" crossorigin="anonymous">
+
+
+
+      
+    
+
+    <link rel="canonical" href="http://example.org/posts/making-the-most-out-of-github/" />
+
+    <link rel="alternate" type="application/rss+xml" href="http://example.org//index.xml" title="Pascal Wilbrink"><meta property="og:title" content="Making the most out of GitHub" />
+<meta property="og:description" content="Make optimal use of GitHub. Spent less time on GitHub by automating out your CI/CD" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/making-the-most-out-of-github/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-26T00:05:37+02:00" />
+<meta property="article:modified_time" content="2023-10-26T00:05:37+02:00" />
+<meta itemprop="name" content="Making the most out of GitHub">
+<meta itemprop="description" content="Make optimal use of GitHub. Spent less time on GitHub by automating out your CI/CD"><meta itemprop="datePublished" content="2023-10-26T00:05:37+02:00" />
+<meta itemprop="dateModified" content="2023-10-26T00:05:37+02:00" />
+<meta itemprop="wordCount" content="525">
+<meta itemprop="keywords" content="GitHub,Repository,CI," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Making the most out of GitHub"/>
+<meta name="twitter:description" content="Make optimal use of GitHub. Spent less time on GitHub by automating out your CI/CD"/>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L2ZVF33Z8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0L2ZVF33Z8');
+</script>
+
+
+    
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head><body><section class="callout">
+    <section class="social">
+        <a href="mailto:pascal.wilbrink@gmail.com">
+            <svg 
+                class="social icon icon--mail"
+                xmlns="http://www.w3.org/2000/svg" 
+                role="img" 
+                viewBox="0 0 24 24">
+                <title>Gmail</title>
+                <path 
+                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+            </svg>
+        </a>
+        <a href="https://github.com/pascalwilbrink" target="_blank">
+            <svg
+                class="social icon icon--github"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                viewBox="0 0 24 24">
+                <title>GitHub</title>
+                <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+        </a>
+    </section>
+    <header class="header">
+        <h1 class="branding">Pascal Wilbrink</h1>
+        <input type="checkbox" class="nav--toggle" id="nav-toggle-checkbox"/>
+        <label for="nav-toggle-checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="nav">
+            
+                <a class="nav__item" href="/">
+                    
+                    Home
+                </a>
+            
+                <a class="nav__item" href="/posts/">
+                    
+                    Blog
+                </a>
+            
+                <a class="nav__item" href="/presentations/">
+                    
+                    Presentations
+                </a>
+            
+        </nav>
+    </header>
+</section><main role="main" class="main">
+
+    <div class="container">
+        <div class="content">
+            <h1>
+                Making the most out of GitHub
+            </h1>
+            <div class="post__meta">
+                
+                    <span class="post__meta__date">
+                        <i class="material-symbols-outlined">calendar_today</i>
+                        26 Oct 2023
+                    </span>
+                <span class="post__meta__tags">
+                            <i class="material-symbols-outlined">sell</i><a href="http://example.org/tags/github/">
+                                    GitHub
+                                </a>
+                            <a href="http://example.org/tags/repository/">
+                                    Repository
+                                </a>
+                            <a href="http://example.org/tags/ci/">
+                                    CI
+                                </a>
+                            </span>
+                
+                
+                <span class="post__meta__time-to-read">
+                    <i class="material-symbols-outlined">timer</i>
+                    2 minutes and 
+                    52 seconds
+                </span>
+            </div>
+            <div class="card">
+                <div class="card__content">
+                    <h2 id="github-actions">GitHub Actions</h2>
+<p>You can integrate GitHub Actions into your repository by adding a <code>.github\workflows</code> folder in the root of your repository. In this folder, you can store all your GitHub Workflows.</p>
+<p>Your GitHub Workflows can be triggered by a variety triggers. For example, if you want to trigger a GitHub workflow upon a commit, you can specify it like this:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">push:</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>After specifying the trigger, you can add Actions to it. GitHub has a <a href="https://github.com/marketplace?type=actions">Marketplace</a> where you can find lots of actions, or you can write your own action, in for example, <a href="https://pascalwilbrink.github.io/tags/nodejs">nodejs</a>.
+You can add secrets for your GitHub Actions under <code>Repository &gt; Settings &gt; Secrets and variables &gt; Actions</code>.</p>
+<!-- raw HTML omitted -->
+<h2 id="special-repositories">Special Repositories</h2>
+<h3 id="github">.GitHub</h3>
+<p>GitHub has a lot of special repositories. One of these special repositories is the <code>.github</code> repository. The <code>.github</code> repository serves as a fallback if one of your other repositories does not contain a <code>.github</code> folder. For example, you can add an issue template in the <code>.github</code> repository that will be applied to all your repositories.</p>
+<h4 id="organization-level">Organization level</h4>
+<p>If you have a <code>.github</code> repository in an organization, it can also serve as a profile page. The <code>README.md</code> inside this repository will be served on your organization.</p>
+<h2 id="profile">Profile</h2>
+<p>You can add a <code>username/username</code> GitHub repository where you can add a <code>README.md</code> file that will serve as your profile page.</p>
+<h2 id="githubio">GitHub.io</h2>
+<p>You can use GitHub Pages to host static files. For example, if you have documentation that you want to give to your endusers, you can use gitHub.io.
+This site is built with <a href="https://gohugo.io/">Hugo</a> and published with a GitHub Action to GitHub.io.</p>
+<h2 id="github-apps">GitHub Apps</h2>
+<p>Next to GitHub Actions, you can make use of GitHub Apps. You can find a list of GitHub Apps in the <a href="https://github.com/marketplace?type=apps">Marketplace</a>. GitHub Apps can automatically deny pull requests or add extra checks for your code. For example, you can use <code>dependabot</code> as a GitHub app to automatically create new pull requests whenever your dependencies have new versions.</p>
+<h2 id="cicd-in-action">CI/CD In Action</h2>
+<p>Let&rsquo;s say you have a Feature Branch Workflow like this:</p>
+<pre class="mermaid">gitGraph
+    commit id: "new Feature"
+    branch "Feature Branch"
+    commit
+    commit
+    checkout "main"
+    merge "Feature Branch"
+    commit
+  </pre>
+  <p>Commiting directly on <code>main</code> has been disabled (Branch Protection Rule).</p>
+<p>When merging the Feature Branch back to Main, it&rsquo;s possible to automatically create a new Release and publish it to, for example, npmjs.org</p>
+<script type="application/javascript" src="https://gist.github.com/pascalwilbrink/b41a4a01951362d60227fd243fce3246.js"></script>
+
+<p>The GitHub Workflow above will be triggered when something has been pushed to <code>main</code>. It uses <a href="https://www.conventionalcommits.org/">Conventional Commits</a> to generate a <code>CHANGELOG.md</code> and checks what the new version number should be.</p>
+<p><code>git commit -m &quot;Chore: Added new Feature [X]&quot;</code></p>
+
+
+
+
+
+<table class="table">
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Version upgrade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feat:</td>
+<td>Minor</td>
+</tr>
+<tr>
+<td>Feat!:</td>
+<td>Major</td>
+</tr>
+<tr>
+<td>Fix:</td>
+<td>Patch</td>
+</tr>
+<tr>
+<td>[BREAKING CHANGE]:</td>
+<td>Major</td>
+</tr>
+</tbody>
+</table>
+
+<p>Other prefixes like <code>docs:</code>, <code>chore:</code>, <code>build:</code>, <code>ci:</code>, <code>test:</code> and <code>refactor:</code> may be used.</p>
+<p>See <a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">the Conventional Commits site</a> for more info.</p>
+<p>After the Feature branch has been merged back to <code>main</code>, The GitHub workflow will be triggered and it will create a new Pull Request with a generated <code>CHANGELOG.md</code> and an updated version number.</p>
+<pre class="mermaid">gitGraph
+    commit id: "new Feature"
+    branch "Feature Branch"
+    commit
+    commit
+    checkout "main"
+    merge "Feature Branch"
+    branch "Release Branch"
+    commit id: "Updated Changelog"
+    checkout "main"
+    merge "Release Branch" type: REVERSE tag: "Release"
+    commit
+  </pre>
+  
+                </div>
+            </div>
+        </div>
+        <aside class="sidebar">
+            
+    
+        
+            
+                <div class="card">
+                    <div class="card__header">
+                        Table of contents
+                    </div>
+                    <div class="card__content">
+                        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#github-actions">GitHub Actions</a></li>
+    <li><a href="#special-repositories">Special Repositories</a>
+      <ul>
+        <li><a href="#github">.GitHub</a></li>
+      </ul>
+    </li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#githubio">GitHub.io</a></li>
+    <li><a href="#github-apps">GitHub Apps</a></li>
+    <li><a href="#cicd-in-action">CI/CD In Action</a></li>
+  </ul>
+</nav>
+                    </div>
+                </div>
+            
+        
+    
+
+
+<div class="card">
+    <div class="card__header">
+        Categories
+    </div>
+    <div class="card__content">
+        <div class="categories">
+            
+                
+                    <a href=/categories/tooling/ title="tooling" class="category">
+                        <span class="category__name">
+                            Tooling
+                        </span>
+                    </a>
+                
+            
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card__header">
+        Tags
+    </div>
+    <div class="card__content">
+        <div class="tags">
+            
+                
+                    <a class="label" href=/tags/ci/ title="ci">
+                        <span class="label__name">
+                            Ci
+                        </span>
+                    </a>
+                
+            
+                
+                    <a class="label" href=/tags/github/ title="github">
+                        <span class="label__name">
+                            Github
+                        </span>
+                    </a>
+                
+            
+                
+                    <a class="label" href=/tags/repository/ title="repository">
+                        <span class="label__name">
+                            Repository
+                        </span>
+                    </a>
+                
+            
+        </div>
+    </div>
+</div>
+        </aside>
+    </div>
+
+        </main>
+  
+
+
+  
+
+
+<script type="text/javascript" src="/workm8/ts/main.6cfa3872b35cba86342b31c8cdecc30e17bbd6a9e5965995da836ac96b77262f.js" integrity="sha256-bPo4crNcuoY0KzHIzezDDhe71qnlllmV2oNqyWt3Ji8="></script>
+
+  
+
+
+  
+
+
+<script type="text/javascript" src="/workm8/ts/copy-code.ed0284ef91a9f19629a89eb4d8b31843a88301d896fdfe6429825ccb5190feca.js" integrity="sha256-7QKE75Gp8ZYpqJ602LMYQ6iDAdiW/f5kKYJcy1GQ/so="></script>
+
+
+    
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+
+    </body>
+</html>
